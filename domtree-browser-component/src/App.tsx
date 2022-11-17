@@ -38,18 +38,24 @@ type TFolder = {
   children?: TFolder[];
 };
 
-function Folder({ name, children }: TFolder) {
+type TFolderProps = {
+  folder: TFolder;
+  depth: number;
+};
+
+function Folder({ folder, depth }: TFolderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <div onClick={() => setIsOpen(!isOpen)}>{name}</div>
-      {isOpen && children && (
-        <div>
-          {children.map((folder, index) => (
+      <div onClick={() => setIsOpen(!isOpen)}>{folder.name}</div>
+      {isOpen && folder?.children && (
+        <div style={{ paddingLeft: `${depth * 10}px`, opacity: `${100 - depth * 20}%` }}>
+          {folder?.children.map((folder, index) => (
             <Folder
               key={index}
-              {...folder}
+              folder={folder}
+              depth={depth + 1}
             />
           ))}
         </div>
@@ -64,7 +70,8 @@ function App() {
       {folders.children.map((folder, index) => (
         <Folder
           key={index}
-          {...folder}
+          folder={folder}
+          depth={1}
         />
       ))}
     </div>
