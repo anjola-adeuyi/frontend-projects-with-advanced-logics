@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import UseReducer from './component/UseReducer';
 
 const folders = {
   children: [
@@ -77,6 +78,8 @@ function App() {
           depth={1}
         />
       ))}
+
+      <UseReducer />
     </div>
   );
 }
