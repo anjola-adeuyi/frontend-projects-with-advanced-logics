@@ -44,14 +44,17 @@ type TFolderProps = {
 };
 
 function Folder({ folder, depth }: TFolderProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div>
-      <div onClick={() => setIsOpen(!isOpen)}>{folder.name}</div>
-      {isOpen && folder?.children && (
-        <div style={{ paddingLeft: `${depth * 10}px`, opacity: `${100 - depth * 20}%` }}>
-          {folder?.children.map((folder, index) => (
+    <div style={{ paddingBottom: '10px' }}>
+      <button onClick={() => setIsExpanded(!isExpanded)}>
+        {folder?.children?.length ? (isExpanded ? '- ' : '+ ') : ''}
+        {folder.name}
+      </button>
+      {isExpanded && folder?.children && (
+        <div style={{ paddingLeft: `${depth * 25}px`, opacity: `${100 - depth * 20}%` }}>
+          {folder?.children?.map((folder, index) => (
             <Folder
               key={index}
               folder={folder}
