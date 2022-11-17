@@ -46,8 +46,11 @@ function Folder({ name, children }: TFolder) {
       <div onClick={() => setIsOpen(!isOpen)}>{name}</div>
       {isOpen && children && (
         <div>
-          {children.map((folder) => (
-            <Folder {...folder} />
+          {children.map((folder, index) => (
+            <Folder
+              key={index}
+              {...folder}
+            />
           ))}
         </div>
       )}
@@ -58,11 +61,11 @@ function Folder({ name, children }: TFolder) {
 function App() {
   return (
     <div className="App">
-      {folders.children.map((folder) => (
-        <>
-          {/* <div>{folder.name}</div> */}
-          <Folder {...folder} />
-        </>
+      {folders.children.map((folder, index) => (
+        <Folder
+          key={index}
+          {...folder}
+        />
       ))}
     </div>
   );
