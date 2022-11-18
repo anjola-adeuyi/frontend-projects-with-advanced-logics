@@ -7,7 +7,7 @@ A compenduim of advanced frontend projects designed with technolgies like typesc
   ![Alt text](/movie-land/src/img/screen.png?raw=true)
 
 When no movie found
-![Alt text](/movie-land/src/img/screen2.png.png?raw=true)
+![Alt text](/movie-land/src/img/screen2.png?raw=true)
 
 # List
 
