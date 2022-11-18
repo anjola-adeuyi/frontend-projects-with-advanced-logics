@@ -1,3 +1,5 @@
+export const API_URL = 'http://www.omdbapi.com?apikey=eccaa7da';
+
 export type TMovieSearch = {
   Title: string;
   Year: string;

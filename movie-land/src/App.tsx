@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import MovieCard from './component/MovieCard';
-import { MovieSearch } from './constants/Movies';
+import { API_URL, MovieSearch } from './constants/Movies';
 import SearchIcon from './search.svg';
-
-// eccaa7da
-const API_URL = 'http://www.omdbapi.com?apikey=eccaa7da';
 
 function App() {
   const [movies, setMovies] = useState<Movie>();
