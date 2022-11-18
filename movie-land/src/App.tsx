@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import MovieCard from './component/MovieCard';
-import { API_URL, MovieSearch } from './constants/Movies';
+import { API_URL, MovieSearch, TMovieSearch } from './constants/Movies';
 import SearchIcon from './search.svg';
 
 function App() {
-  const [movies, setMovies] = useState<Movie>();
+  const [movies, setMovies] = useState<Array<TMovieSearch>>();
 
   useEffect(() => {
     searchMovies('star wars');
@@ -14,8 +14,6 @@ function App() {
   const searchMovies = async (title: string) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-
-    console.log('movie data', data.Search);
 
     setMovies(data.Search);
   };
@@ -37,9 +35,7 @@ function App() {
         />
       </div>
 
-      <div className="container">
-        <MovieCard MovieSearch={MovieSearch} />
-      </div>
+      <div className="container">{movies && <MovieCard MovieSearch={movies[0]} />}</div>
     </div>
   );
 }
