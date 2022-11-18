@@ -6,6 +6,7 @@ import SearchIcon from './search.svg';
 
 function App() {
   const [movies, setMovies] = useState<Array<TMovieSearch>>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
     searchMovies('star wars');
@@ -25,13 +26,17 @@ function App() {
         <input
           type="text"
           placeholder="Search for movies"
-          onChange={(e) => {}}
-          value={'star wars'}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+          value={searchTerm}
         />
         <img
           src={SearchIcon}
           alt="search icon"
-          onClick={() => {}}
+          onClick={() => {
+            searchMovies(searchTerm);
+          }}
         />
       </div>
 
