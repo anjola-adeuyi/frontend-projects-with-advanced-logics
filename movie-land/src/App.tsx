@@ -60,7 +60,7 @@ function App() {
         </div>
       ) : (
         <div className="empty">
-          <h2>No movie found</h2>
+          <h2>No movie found for "{searchTerm}"</h2>
         </div>
       )}
     </div>
