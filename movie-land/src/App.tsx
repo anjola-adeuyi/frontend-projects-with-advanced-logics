@@ -16,13 +16,22 @@ function App() {
     const response = await fetch(`${API_URL}&s=${title}`);
     const movie = await response.json();
 
-    setMovies(movie.Search);
+    setMovies(movie?.Search);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (searchTerm && e.key === 'Enter') {
+      searchMovies(searchTerm);
+    }
   };
 
   return (
     <div className="app">
       <h1>MovieLand</h1>
-      <div className="search">
+      <div
+        className="search"
+        onKeyDown={handleKeyPress}
+      >
         <input
           type="text"
           placeholder="Search for movies"
@@ -40,7 +49,7 @@ function App() {
         />
       </div>
 
-      {movies.length > 0 ? (
+      {movies && movies.length > 0 ? (
         <div className="container">
           {movies?.map((movie) => (
             <MovieCard
