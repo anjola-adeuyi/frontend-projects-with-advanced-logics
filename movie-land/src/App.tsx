@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import reactLogo from './assets/react.svg';
 import './App.css';
+import SearchIcon from './search-icon.svg';
 
 // eccaa7da
 const API_URL = 'http://www.omdbapi.com?apikey=eccaa7da';
@@ -21,7 +21,11 @@ function App() {
     setMovies(data.Search);
   };
 
-  return <div className="App">App</div>;
+  return (
+    <div className="App">
+      <h1>MovieLand</h1>
+    </div>
+  );
 }
 
 export default App;
