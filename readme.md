@@ -3,7 +3,7 @@
 A compenduim of advanced frontend projects designed with technolgies like typescript and react.
 [Live Link](https://frontend-projects-with-advanced-logics.vercel.app/)
 
-![Alt text](/movie-land/img/screen.png?raw=true)
+![Alt text](/movie-land/src/img/screen.png?raw=true)
 
 # List
 
